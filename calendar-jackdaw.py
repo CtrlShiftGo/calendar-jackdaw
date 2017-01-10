@@ -52,8 +52,20 @@ def get_credentials():
         print('Storing credentials to ' + credential_path)
     return credentials
 
+def get_tag(tag-file-name):
+    tags = open(str(tag-file-name), 'r')
+    # Parse tags
+    for lines in tags:
+        # Check for subtags
+        
+        if line[0] == " ":
+            # Line is a tag subset
+
 def main():
     return 0
 
 if __name__ == '__main__':
+    if(len(sys.argv) < 2 || len(sys.argv) > 3):
+        print "Incorrect Usage"
+        print "usage example"
     main()

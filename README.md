@@ -1,7 +1,7 @@
-# calendar-parser
+# calendar-jackdaw
 ## Usage
 
-`./calendar-parser.py <start-date> [end-date]`
+`./calendar-jackdaw.py <start-date> [end-date]`
 
 `<start-date>` and `[end-date]` should be in ISO8601 format:
   * 2017-01-01
