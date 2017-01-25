@@ -60,6 +60,12 @@ def get_tag(tag-file-name):
         
         if line[0] == " ":
             # Line is a tag subset
+def get_calendar(calendar_name, service):
+    calendar_list = service.calendarList().list().execute()
+    for calendar in calendar_list['items']:
+        if(calendar_name in calendar['summary']):
+            return calendar['id']
+    return 0
 
 def main():
     return 0
