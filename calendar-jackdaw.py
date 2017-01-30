@@ -77,7 +77,11 @@ class CalendarParser:
                 return calendar['id']
         return None
 
-    # def get_event:
+    def get_events(self, calendar_name):
+        eventResults = self.service.events().list(
+            calendarId=self.get_calendar(calendar_name), maxResults=100,
+            singleEvents=True, orderBy='startTime').execute()
+        return eventResults.get('items', [])
 
 if __name__ == '__main__':
     if(len(os.sys.argv) < 2 or len(os.sys.argv) > 3):
