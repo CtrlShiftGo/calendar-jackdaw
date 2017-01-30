@@ -75,7 +75,7 @@ class CalendarParser:
         for calendar in calendar_list['items']:
             if(calendar_name in calendar['summary']):
                 return calendar['id']
-        return 0
+        return None
 
     # def get_event:
 
