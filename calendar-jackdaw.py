@@ -83,6 +83,10 @@ class CalendarParser:
             singleEvents=True, orderBy='startTime').execute()
         return eventResults.get('items', [])
 
+    def conv_time(self, time_str):
+        date = datetime.datetime.strptime(time_str, "%Y-%M-%d")
+        return date.isoformat("T") + "-08:00"
+
 if __name__ == '__main__':
     if(len(os.sys.argv) < 2 or len(os.sys.argv) > 3):
         print
