@@ -77,8 +77,9 @@ class CalendarParser:
                 return calendar['id']
         return None
 
-    def get_events(self, calendar_name, start_date):
-        end_date = datetime.datetime.utcnow().isoformat("T") + "-08:00"
+    def get_events(self, calendar_name, start_date, end_date=None):
+        if(end_date is None):
+            end_date = datetime.datetime.utcnow().isoformat("T") + "-08:00"
         eventResults = self.service.events().list(
             calendarId=self.get_calendar(calendar_name), timeMin = start_date,
             singleEvents=True, orderBy='startTime', timeMax = end_date).execute()
