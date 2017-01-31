@@ -77,10 +77,11 @@ class CalendarParser:
                 return calendar['id']
         return None
 
-    def get_events(self, calendar_name):
+    def get_events(self, calendar_name, start_date):
+        end_date = datetime.datetime.utcnow().isoformat("T") + "-08:00"
         eventResults = self.service.events().list(
-            calendarId=self.get_calendar(calendar_name), maxResults=100,
-            singleEvents=True, orderBy='startTime').execute()
+            calendarId=self.get_calendar(calendar_name), timeMin = start_date,
+            singleEvents=True, orderBy='startTime', timeMax = end_date).execute()
         return eventResults.get('items', [])
 
     def conv_time(self, time_str):
