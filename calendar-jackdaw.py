@@ -86,7 +86,7 @@ class CalendarParser:
         return eventResults.get('items', [])
 
     def conv_time(self, time_str):
-        date = datetime.datetime.strptime(time_str, "%Y-%M-%d")
+        date = datetime.datetime.strptime(time_str, "%Y-%m-%d")
         return date.isoformat("T") + "-08:00"
 
 if __name__ == '__main__':
