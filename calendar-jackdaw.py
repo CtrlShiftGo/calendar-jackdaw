@@ -89,6 +89,12 @@ class CalendarParser:
         date = datetime.datetime.strptime(time_str, "%Y-%m-%d")
         return date.isoformat("T") + "-08:00"
 
+    def calc_duration(self, start_time, end_time):
+        duration = 0
+        start_time = datetime.datetime.strptime(start_time, '%Y-%m-%dT%H:%M:%S-08:00')
+        end_time = datetime.datetime.strptime(end_time, '%Y-%m-%dT%H:%M:%S-08:00')
+        duration = end_time - start_time
+        return duration
 if __name__ == '__main__':
     if(len(os.sys.argv) < 2 or len(os.sys.argv) > 3):
         print
